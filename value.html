@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="value.css">
+</head>
+
+<body>
+    <div class="container">
+        <h3>Let's calculate the values</h3>
+        <div class="calculate">
+            <form name="calculator">
+                <div class="display">
+                    <input type="text" name="display" id="display" placeholder="0">
+                </div>
+                <div>
+                    <input type="button" value="AC" onclick="clearDisplay()">
+                    <input type="button" value="DE" onclick="deleteLast()">
+                    <input type="button" value="." onclick="enter_num_opr('.')">
+                    <input type="button" value="/" onclick=" enter_num_opr('/')">
+                </div>
+
+                <div>
+                    <input type="button" value="7" onclick="enter_num_opr('7')">
+                    <input type="button" value="8" onclick="enter_num_opr('8')">
+                    <input type="button" value="9" onclick="enter_num_opr('9')">
+                    <input type="button" value="*" onclick="enter_num_opr('*')">
+                    <input type="button" value="4" onclick="enter_num_opr('4')">
+                    <input type="button" value="5" onclick="enter_num_opr('5')">
+                    <input type="button" value="6" onclick="enter_num_opr('6')">
+                    <input type="button" value="-" onclick="enter_num_opr('-')">
+                    <input type="button" value="1" onclick="enter_num_opr('1')">
+                    <input type="button" value="2" onclick="enter_num_opr('2')">
+                    <input type="button" value="3" onclick="enter_num_opr('3')">
+                    <input type="button" value="+" onclick="enter_num_opr('+')">
+                </div>
+
+                <div>
+                    <input type="button" value="0" onclick="enter_num_opr('0')">
+                    <input type="button" value="%" onclick="enter_num_opr('%')">
+                    <input type="button" value="=" style="width: 9rem;" onclick="equal()">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function enter_num_opr(enter_values) {
+            document.calculator.display.value += enter_values;
+        }
+
+        function clearDisplay() {
+            document.calculator.display.value = '';
+        }
+
+        function deleteLast() {
+            let currentDisplay = document.calculator.display.value;
+            document.calculator.display.value = currentDisplay.slice(0, -1);
+        }
+
+        function equal() {
+            let values = document.calculator.display.value;
+            let answer = eval(values);
+            let a = document.calculator.display.value = answer
+        }
+    </script>
+</body>
+
+</html>
